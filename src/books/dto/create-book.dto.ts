@@ -1,6 +1,6 @@
-import { IsEnum, IsNotEmpty, IsOptional, IsString } from 'class-validator';
+import { IsEnum, IsNotEmpty, IsOptional, IsString } from "class-validator";
 
-import { BookStatus } from '../entities/book.entity';
+import { BookStatus } from "../entities/book.entity";
 
 export class CreateBookDto {
   @IsNotEmpty()
