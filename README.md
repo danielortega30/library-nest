@@ -10,6 +10,21 @@ App in Nest to manage a library.
 $ npm install
 ```
 
+## Environment Configuration
+
+Create a `.env` file in the root directory with the following variables:
+
+````plaintext
+# Database Configuration
+DB_HOST=your_database_host
+DB_PORT=5432
+DB_USERNAME=your_database_username
+DB_PASSWORD=your_database_password
+DB_DATABASE=your_database_name
+
+# Application Configuration
+PORT=3000
+
 ## Compile and run the project
 
 ```bash
@@ -21,7 +36,7 @@ $ npm run start:dev
 
 # production mode
 $ npm run start:prod
-```
+````
 
 ## Dependencies
 
