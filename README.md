@@ -105,3 +105,144 @@ $ npm run start:prod
   "error": "Not Found"
 }
 ```
+
+#### Create Book
+
+**POST** `/api/books`
+
+**Request Body**
+
+```json
+{
+  "name": "The Great Gatsby",
+  "isbn": "978-3-16-148410-0"
+}
+```
+
+**Response (201)**
+
+```json
+{
+  "id": 1,
+  "name": "The Great Gatsby",
+  "isbn": "978-3-16-148410-0",
+  "isDeleted": false,
+  "deletedAt": null,
+  "createdAt": "2023-11-15T10:00:00.000Z",
+  "updatedAt": "2023-11-15T10:00:00.000Z"
+}
+```
+
+**Response (400)**
+
+```json
+{
+  "message": "Failed to create book",
+  "error": "Bad Request",
+  "statusCode": 400
+}
+```
+
+#### Update Book
+
+**PATCH** `/api/books`
+
+**Request Body**
+
+```json
+{
+  "name": "Updated Book Name",
+  "isbn": "978-3-16-148410-1"
+}
+```
+
+**Response (200)**
+
+```json
+{
+  "id": 1,
+  "name": "Updated Book Name",
+  "isbn": "978-3-16-148410-1",
+  "isDeleted": false,
+  "deletedAt": null,
+  "createdAt": "2023-11-15T10:00:00.000Z",
+  "updatedAt": "2023-11-15T10:00:00.000Z"
+}
+```
+
+**Response (400)**
+
+```json
+{
+  "message": "Book with ID 1 not found",
+  "error": "Not Found"
+}
+```
+
+#### Search Book
+
+**GET** `/api/books/search`
+
+##### Query Parameters
+
+**Query Parameters**
+
+- query (string) - Search term
+
+**Response (200)**
+
+```json
+[
+  {
+    "id": 1,
+    "name": "The Great Gatsby",
+    "isbn": "978-3-16-148410-0",
+    "isDeleted": false,
+    "deletedAt": null,
+    "createdAt": "2023-11-15T10:00:00.000Z",
+    "updatedAt": "2023-11-15T10:00:00.000Z"
+  }
+]
+```
+
+**Response (500)**
+
+```json
+{
+  "message": "Failed to search books",
+  "error": "Internal server error"
+}
+```
+
+#### Delete Book
+
+**DELETE** `/api/books/:id`
+
+##### Query Parameters
+
+**Query Parameters**
+
+- id (path) - Book ID
+
+**Response (200)**
+
+```json
+{
+  "id": 1,
+  "name": "The Great Gatsby",
+  "isbn": "978-3-16-148410-0",
+  "isDeleted": true,
+  "deletedAt": "2023-11-15T10:00:00.000Z",
+  "createdAt": "2023-11-15T10:00:00.000Z",
+  "updatedAt": "2023-11-15T10:00:00.000Z"
+}
+```
+
+**Response (404)**
+
+```json
+{
+  "message": "Book with ID 1 not found",
+  "error": "Not Found"
+}
+```
